@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -29,6 +30,7 @@ export class WeatherComponent implements OnInit {
         this.op_temp = lstresult['query']['results']['channel']['item']['condition']['temp'];
       },
       error => {
+        Observable.throw('Erooooooooor');
         console.log('Error. The findWeather result JSON value is as follows:');
         console.log(error);
       }
